@@ -1,6 +1,7 @@
 <script setup>
 import botones from './botones.vue'
 import escenas from './escenas.vue'
+import inicio from './inicio.vue'
 import { ref } from 'vue';
 
 const frases = [
@@ -31,15 +32,23 @@ const decrement = () => {
   }
 }
 
+let show= ref(false);
+let hide = ref(true);
+
+const empezar = () => {
+  show.value = true;
+  hide.value = false;
+}
+
 
 </script>
 
 <template>
-
-  <botones @decrement="decrement()" @increment="increment()" />
-  <escenas v-bind:frases="frases" :current-sentence="currentSentence" />
+  <inicio @empezar="empezar()" v-if="hide"/>
+  <botones @decrement="decrement()" @increment="increment()" v-if="show"/>
+  <escenas v-bind:frases="frases" :current-sentence="currentSentence" v-if="show"/>
 </template>
 
 <style scoped>
-
+  
 </style>
