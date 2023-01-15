@@ -7,12 +7,13 @@ import { frases } from './arrayEscenas'
 
 
 let currentSentence = ref(0);
-let numberImage = frases[parseInt(currentSentence.value)].img
 
+let numberImage = frases[parseInt(currentSentence.value)].img
 
 let imageUrl = ref(new URL('../img/' + numberImage, import.meta.url).href)
 
 const url = () => {
+  numberImage = frases[parseInt(currentSentence.value)].img
   imageUrl = ref(new URL('../img/' + numberImage, import.meta.url).href)
 }
 
