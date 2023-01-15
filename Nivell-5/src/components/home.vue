@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import botones from './botones.vue'
 import escenas from './escenas.vue'
 import inicio from './inicio.vue'
